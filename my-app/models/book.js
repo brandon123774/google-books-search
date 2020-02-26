@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+var bookSchema = new Schema({
   title: { type: String, required: true },
   authors: { type: String, required: true },
   description: String,
-  image: ,
-  link: ,
+  image: String,
+  link: String,
 });
 
-const Book = mongoose.model("Book", bookSchema);
+var Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;

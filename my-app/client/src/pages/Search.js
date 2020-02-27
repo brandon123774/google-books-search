@@ -30,18 +30,21 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>Books to read</h1>
             </Jumbotron>
             <form>
               <Input name="title" placeholder="Title (required)" />
               <Input name="author" placeholder="Author (required)" />
-              <TextArea name="synopsis" placeholder="Synopsis (Optional)" />
+              <TextArea name="description" placeholder="Description" />
+              <Input name="image" placeholder="Image" />
+              <Input name="link" placeholder="Link" />
+
               <FormBtn>Submit Book</FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Book List</h1>
             </Jumbotron>
             {this.state.books.length ? (
               <List>

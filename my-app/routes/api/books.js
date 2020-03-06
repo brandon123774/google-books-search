@@ -1,5 +1,5 @@
 var router = require("express").Router();
-var booksController = require("../../controllers/booksController");
+var booksController = require("../../controllers/bookController");
 
 // route for  "/api/books"
 router.route("/")

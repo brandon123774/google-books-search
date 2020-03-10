@@ -36,7 +36,7 @@ export function BookListItem(props) {
         API.deleteBook(props.id)
             .then(
                 res => {
-                    // use loadBooks prop from Saved page component
+                    // use loadBooks property from Saved page 
                     props.loadBooks()
                     console.log(props.id)
                 }
@@ -67,7 +67,7 @@ export function BookListItem(props) {
                         >
                             View
                         </a>
-                        {/* if there is an object id render the SaveBtn component else render the DeleteBtn component */}
+                        {/* if there is an object id, then it will render the SaveBtn or else, it will render the DeleteBtn */}
                         {!props.id ?
                             <SaveBtn
                                 type="success"

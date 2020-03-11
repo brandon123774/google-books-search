@@ -39,10 +39,10 @@ class Save extends Component {
                                         <ListItem
                                             key={book.id}
                                             id={book.id}
-                                            title={book.volumeInfo.title}
-                                            authors={book.volumeInfo.authors}
-                                            link={book.volumeInfo.infoLink}
-                                            description={book.volumeInfo.description}
+                                            title={book.title}
+                                            authors={book.authors}
+                                            link={book.link}
+                                            description={book.description}
                                             loadBooks={this.loadBooks}
                                         />
                                     );

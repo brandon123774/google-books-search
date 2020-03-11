@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import API from "../utils/APi";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
-import {List, ListItem} from "../components/List";
+import { List, ListItem } from "../components/List";
 
 class Search extends Component {
   state = {
     books: [],
+    //q stand in place for bookSearch
     q: ""
   };
 
@@ -39,9 +40,6 @@ class Search extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            {/* <Jumbotron>
-              <h1>Google Books</h1>
-            </Jumbotron> */}
             <form>
               <Input name="title" placeholder="Title (required)" onChange={this.handleInput} value={this.state.q} />
               {/* <Input name="author" placeholder="Author (required)" />
@@ -53,9 +51,7 @@ class Search extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            {/* <Jumbotron>
-              <h1>Book List</h1>
-            </Jumbotron> */}
+          
             {this.state.books.length ? (
               <List>
                 {this.state.books.map(book => (
@@ -72,7 +68,7 @@ class Search extends Component {
                 ))}
               </List>
             ) : (
-                <h3 text align= "center">Books to Read</h3>
+                <h3 text align="center">Books to Read</h3>
               )}
           </Col>
         </Row>

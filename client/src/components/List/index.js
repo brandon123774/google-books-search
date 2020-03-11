@@ -1,5 +1,5 @@
 import React from "react";
-// import Thumbnail from "../Thumbnail";
+import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 import SaveBtn from "../SaveBtn";
 import API from "../../utils/APi";
@@ -38,7 +38,6 @@ export function ListItem(props) {
                 res => {
                     // use loadBooks property from Saved page 
                     props.loadBooks()
-                    console.log(props.id)
                 }
             )
             .catch(err => console.log(err))
@@ -48,9 +47,9 @@ export function ListItem(props) {
         <li className="list-group-item" key={props.id}>
             <Container>
                 <Row>
-                    {/* <Col size="xs-4 sm-2">
+                    <Col size="xs-4 sm-2">
                         <Thumbnail src={props.image} />
-                    </Col> */}
+                    </Col>
                     <Col size="xs-8 sm-10">
                         <h3>{props.title}</h3>
                         <p>
@@ -94,22 +93,3 @@ export function ListItem(props) {
 
 export default List;
 
-// // This file exports both the List and ListItem components
-
-// export function List({ children }) {
-//   return (
-//     <div className="list-overflow-container">
-//       <ul className="list-group">{children}</ul>
-//     </div>
-//   );
-// }
-
-// export function ListItem(props) {
-//   return <li className="list-group-item">]
-//       <a href={"/books/" + props.id}>
-//                       <strong>
-//                         {props.title} by {props.author}
-//                       </strong>
-//                     </a>
-//   </li>;
-// }

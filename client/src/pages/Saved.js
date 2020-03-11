@@ -10,7 +10,7 @@ class Save extends Component {
         savedBooks: []
     };
 
-    // loads saved books when Saved page loads
+    // loads saved books when Saved page is opened
     componentDidMount() {
         this.loadBooks();
     };
@@ -37,7 +37,6 @@ class Save extends Component {
                                 {this.state.savedBooks.map(book => {
                                     return (
                                         <ListItem
-
                                             key={book.id}
                                             id={book.id}
                                             title={book.volumeInfo.title}

@@ -1,13 +1,16 @@
-var path = require("path");
-var router = require("express").Router();
-var apiRoutes = require("./api");
+const express = require('express');
+const router = express.Router();
 
-// API Routes route
-router.use("/api", apiRoutes);
+const booksController = require("../controllers/booksController");
 
-// If no API routes are used
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+router.route("/book")
+    .get(booksController.findAll)
+    // .get(booksController.searchApi)
+    .post(booksController.save)
+
+router.route("/book/:id")
+    .get(booksController.findById)
+    .put(booksController.update)
+    .delete(booksController.remove)
 
 module.exports = router;

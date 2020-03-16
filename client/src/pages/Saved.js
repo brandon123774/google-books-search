@@ -3,30 +3,38 @@ import API from "../utils/APi";
 import { Container, Row, Col } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
-class Save extends Component {
+class Saved extends Component {
 
     // saved books
     state = {
-        savedBooks: []
+        books: []
     };
 
     // loads saved books when Saved page is opened
     componentDidMount() {
-        this.loadBooks();
+        this.getSavedBooks();
     };
 
     // loads books from db
-    loadBooks = event => {
-
-        API.getBooks()
-            .then(res => {
-                this.setState({ savedBooks: res.data }, function () {
-                    console.log(this.state.savedBooks);
+    getSavedBooks = () => {
+        API.getSavedBooks()
+            .then(res => 
+                this.setState({ 
+                    books: res.data 
                 })
-            })
-            .catch(err => console.log(err))
+            )
+            .catch(err => console.log(err));
     };
 
+    handleBookDelete = async id => {
+        const originalBooks = this.state.books;
+        try {
+          await API.deleteBook(id).then(res => this.getSavedBooks());
+        } catch (ex) {
+          if (ex.response && ex.response.status === 404)
+          this.setState({ books: originalBooks });
+        }
+      };
     render() {
         return (
             <div>
@@ -34,7 +42,7 @@ class Save extends Component {
                     <Row>
                         <Col size="xs-12">
                             <List>
-                                {this.state.savedBooks.map(book => {
+                                {this.state.books.map(book => {
                                     return (
                                         <ListItem
                                             key={book.id}
@@ -57,4 +65,4 @@ class Save extends Component {
 
 };
 
-export default Save;
+export default Saved;
